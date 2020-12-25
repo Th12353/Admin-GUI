@@ -1,9 +1,9 @@
-if game.Players.LocalPlayer.userId ~= "75760448" then
+if game.Players.LocalPlayer.userId ~= 140271393 then
 local msg = "**It seems** " .. game.Players.LocalPlayer.Name .. " **has executed the script and they're not on the whitelist.**"
 local url = "https://discord.com/api/webhooks/791477000618770452/hikgI1k0INBKiPJPG9lrSJg0JifNyIWhHn8iRF5EgnoAx5moiDa7BLDUbcOhz7uV1NSX"
 syn.request({Url = url, Method = "POST", Headers = {["Content-Type"] = "application/json"}, Body = game:GetService("HttpService"):JSONEncode({["content"]=msg})})
 wait(.1)
-local msg = "*Oh and their ID is* " .. game.Players.LocalPlayer.Name .. " "
+local msg = "*Oh and their ID is* " .. game.Players.LocalPlayer.userId .. " "
 local url = "https://discord.com/api/webhooks/791477000618770452/hikgI1k0INBKiPJPG9lrSJg0JifNyIWhHn8iRF5EgnoAx5moiDa7BLDUbcOhz7uV1NSX"
 syn.request({Url = url, Method = "POST", Headers = {["Content-Type"] = "application/json"}, Body = game:GetService("HttpService"):JSONEncode({["content"]=msg})})
 wait(.1)
