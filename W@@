@@ -37,12 +37,25 @@ sectiones1:addButton("Teleport to the truth", function()
  game:GetService("TeleportService"):Teleport(4529197908, LocalPlayer)
 end)
 
-sectiones2:addButton("No colide trees", function()
-	game:GetService("Workspace").NoCollideTrees.Parent = game.ReplicatedStorage
+sectiones2:addButton("Load ESP", function()
+    -- Options for ESP
+_G.options = {
+     ["Hunters"] = true,
+     ["Traps"] = true,
+     ["Items"] = true,
+     ["Threats"] = true, -- Serpent, Turrets, etc.
+}
+loadstring(game:HttpGet("https://pastebin.com/raw/u2Z1vqHY", true))()
 end)
+
 sectiones2:addButton("Add colide trees", function()
 	game:GetService("ReplicatedStorage").NoCollideTrees.Parent = game.Workspace
 end)
+
+sectiones2:addButton("No colide trees", function()
+	game:GetService("Workspace").NoCollideTrees.Parent = game.ReplicatedStorage
+end)
+
 sectiones2:addButton("Improve Graphics (Sunny)", function()
     -- Roblox Graphics Enhancher
 _G.FullBrightEnabled = false
@@ -152,39 +165,30 @@ local Isle929 = venyx:addPage("Misc", 5012544693)
 local Isle999 = Isle929:addSection("Options")
 local Isle92399 = Isle929:addSection("Toggles")
 
+Scripts:addButton("Death Return", function()
+	game.Players.LocalPlayer.Character.DeathReturn:Destroy()
+end)
 Scripts:addButton("MaxSlopeAngles", function()
 	game.Players.LocalPlayer.Character.Humanoid.MaxSlopeAngle = 89.9
 end)
 Scripts:addButton("MaxCameraZoom", function()
 	game.Players.LocalPlayer.CameraMaxZoomDistance = 1000000000000
 end)
-Scripts:addButton("Death Return", function()
-	game.Players.LocalPlayer.Character.DeathReturn:Destroy()
-end)
-sectiones2:addButton("Load ESP", function()
-    -- Options for ESP
-_G.options = {
-     ["Hunters"] = true,
-     ["Traps"] = true,
-     ["Items"] = true,
-     ["Threats"] = true, -- Serpent, Turrets, etc.
-}
-loadstring(game:HttpGet("https://pastebin.com/raw/u2Z1vqHY", true))()
-end)
 
-Isle999:addButton("Fullbright", function()
-	local Light = game:GetService("Lighting")
-	function dofullbright()
-		Light.Ambient = Color3.new(1, 1, 1)
-		Light.ColorShift_Bottom = Color3.new(1, 1, 1)
-		Light.ColorShift_Top = Color3.new(1, 1, 1)
-	end
-	dofullbright()
-	Light.LightingChanged:Connect(dofullbright)
-end)
+
+
+
 Isle999:addButton("Print Portal Email", function()
 	local e = game.Workspace.ObservatoryComputer.Monitor.SurfaceGui.Email["6"].Message2.Text
 	print(e)
+end)
+Isle999:addButton("Kill mercenaries", function()
+local Player = game.Players.LocalPlayer
+for index, value in next, workspace:GetDescendants() do
+if (value:FindFirstChildOfClass("Humanoid") and value ~= Player.Character) then
+value.Humanoid.Health = 0
+end
+end
 end)
 Isle999:addButton("Orbital Strike", function()
       game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1584.68, -10.015, 986.675)
@@ -197,7 +201,18 @@ Isle999:addButton("Orbital Strike", function()
     wait(5)
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-562.794, 189.13, -1225.34)
     wait(.1)
-    end)
+end)
+
+Isle999:addButton("Fullbright", function()
+	local Light = game:GetService("Lighting")
+	function dofullbright()
+		Light.Ambient = Color3.new(1, 1, 1)
+		Light.ColorShift_Bottom = Color3.new(1, 1, 1)
+		Light.ColorShift_Top = Color3.new(1, 1, 1)
+	end
+	dofullbright()
+	Light.LightingChanged:Connect(dofullbright)
+end)
 Isle999:addButton("R15 FE Gui", function()
 -- Objects
 
@@ -464,14 +479,6 @@ Scrip33ts:addSlider("Walkspeed [Q]", 16, 16, 150, function(value)
 	onSelected(game.Players.LocalPlayer:GetMouse())
 end)
 
-Isle999:addButton("Kill mercenaries", function()
-local Player = game.Players.LocalPlayer
-for index, value in next, workspace:GetDescendants() do
-if (value:FindFirstChildOfClass("Humanoid") and value ~= Player.Character) then
-value.Humanoid.Health = 0
-end
-end
-end)
 
 Isle999:addButton("Noclip [V]", function()
 	noclip = false
