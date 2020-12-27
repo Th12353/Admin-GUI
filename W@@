@@ -241,7 +241,12 @@ Isle999:addButton("Orbital Strike", function()
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-562.794, 189.13, -1225.34)
     wait(.1)
 end)
-
+Isle999:addButton("Anti-Stan", function()
+while true do
+game.Workspace.Monster.Humanoid.Health = 0
+wait(.1)
+end
+end)
 Isle999:addButton("Fullbright", function()
 	local Light = game:GetService("Lighting")
 	function dofullbright()
