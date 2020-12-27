@@ -169,17 +169,7 @@ local Isle929 = venyx:addPage("Misc", 5012544693)
 local Isle999 = Isle929:addSection("Options")
 local Isle92399 = Isle929:addSection("Toggles")
 
-Scripts:addButton("Death Return", function()
-	game.Players.LocalPlayer.Character.DeathReturn:Destroy()
-end)
-Scripts:addButton("MaxSlopeAngles", function()
-	game.Players.LocalPlayer.Character.Humanoid.MaxSlopeAngle = 89.9
-end)
-Scripts:addButton("MaxCameraZoom", function()
-	game.Players.LocalPlayer.CameraMaxZoomDistance = 1000000000000
-end)
-
-Isle999:addButton("NPC Control [Ctrl + Click]", function()
+Scripts:addButton("NPC Control [Ctrl + Click]", function()
 spawn(function()
   while wait() do
     game.Players.LocalPlayer.MaximumSimulationRadius = math.huge;
@@ -216,6 +206,17 @@ Mouse.KeyDown:connect(function()
   end
 end)
 end)
+
+Scripts:addButton("Death Return", function()
+	game.Players.LocalPlayer.Character.DeathReturn:Destroy()
+end)
+Scripts:addButton("MaxSlopeAngles", function()
+	game.Players.LocalPlayer.Character.Humanoid.MaxSlopeAngle = 89.9
+end)
+Scripts:addButton("MaxCameraZoom", function()
+	game.Players.LocalPlayer.CameraMaxZoomDistance = 1000000000000
+end)
+
 Isle999:addButton("Print Portal Email", function()
 	local e = game.Workspace.ObservatoryComputer.Monitor.SurfaceGui.Email["6"].Message2.Text
 	print(e)
