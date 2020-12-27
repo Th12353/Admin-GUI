@@ -242,10 +242,8 @@ Isle999:addButton("Orbital Strike", function()
     wait(.1)
 end)
 Isle999:addButton("Anti-Stan", function()
-while true do
 game.Workspace.Monster.A.Humanoid.Health = 0
-wait(.1)
-end
+game.Workspace.Monster.A.Humanoid.BreakJointsOnDeath = true
 end)
 Isle999:addButton("Fullbright", function()
 	local Light = game:GetService("Lighting")
