@@ -300,13 +300,7 @@ local Isle929 = venyx:addPage("Misc", 5012544693)
 local Isle999 = Isle929:addSection("Options")
 local Isle92399 = Isle929:addSection("Toggles")
 
-Scripts:addButton("NPC Control [Ctrl + Click]", function()
-spawn(function()
-  while wait() do
-    game.Players.LocalPlayer.MaximumSimulationRadius = math.huge;
-    setsimulationradius(math.huge);
-  end
-end)
+
 
 local OGPN = game.Players.LocalPlayer.Name
 local Player = game.Players.LocalPlayer
@@ -340,6 +334,14 @@ end)
 
 Scripts:addButton("IY", function()
 loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+
+Scripts:addButton("NPC Control [Ctrl + Click]", function()
+spawn(function()
+  while wait() do
+    game.Players.LocalPlayer.MaximumSimulationRadius = math.huge;
+    setsimulationradius(math.huge);
+  end
 end)
 
 Scripts:addButton("Death Return", function()
