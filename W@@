@@ -207,6 +207,10 @@ Mouse.KeyDown:connect(function()
 end)
 end)
 
+Scripts:addButton("IY", function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+
 Scripts:addButton("Death Return", function()
 	game.Players.LocalPlayer.Character.DeathReturn:Destroy()
 end)
