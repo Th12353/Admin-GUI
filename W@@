@@ -298,7 +298,9 @@ local Scripts1 = venyx:addPage("Scripts", 5012544693)
 local Scripts = Scripts1:addSection("Options")
 local Scrip33ts = Scripts1:addSection("Other")
 local Isle929 = venyx:addPage("Misc", 5012544693)
+local isl129391 = venyx:addPage("Size", 5012544693)
 local Isle999 = Isle929:addSection("Options")
+local isle192312948 = isl129391:addSection("Options")
 local Isle92399 = Isle929:addSection("Toggles")
 
 
@@ -309,20 +311,63 @@ Scripts:addButton("IY", function()
 loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
 end)
 
+Scripts:addButton("NPC Control [Ctrl Click]", function()
+spawn(function()
+  while wait() do
+    game.Players.LocalPlayer.MaximumSimulationRadius = math.huge;
+    setsimulationradius(math.huge);
+  end
+end)
+
+local OGPN = game.Players.LocalPlayer.Name
+local Player = game.Players.LocalPlayer
+local Mouse = Player:GetMouse()
+Mouse.Button1Down:connect(function()
+  if game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.LeftControl) and Mouse.Target ~= nil and Mouse.Target.Parent.Name ~= "Workspace" and Mouse.Target.Parent:FindFirstChildOfClass("Humanoid") ~= nil then
+    local Char = Mouse.Target.Parent
+    Player.Character = Mouse.Target.Parent
+    workspace.CurrentCamera.CameraSubject = Char
+    Char.Animate.Disabled = true
+   wait(0.1)
+    Char.Animate.Disabled = false
+  end
+end)
+
+Mouse.KeyDown:connect(function()
+  if game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.Quote) then
+    for i,v in pairs(game.Workspace:GetDescendants()) do
+      if v.Name == OGPN then
+        local Char = v
+        Player.Character = v
+        workspace.CurrentCamera.CameraSubject = Char
+        Char.Animate.Disabled = true
+       wait(0.1)
+        Char.Animate.Disabled = false
+      end
+    end
+  end
+end)
+end)
+
 Scripts:addButton("Death Return", function()
 	game.Players.LocalPlayer.Character.DeathReturn:Destroy()
 end)
-Scripts:addButton("MaxSlopeAngles", function()
+Scripts:addButton("Max Slope Angles", function()
 	game.Players.LocalPlayer.Character.Humanoid.MaxSlopeAngle = 89.9
 end)
-Scripts:addButton("MaxCameraZoom", function()
+Scripts:addButton("Max Camera Zoom", function()
 	game.Players.LocalPlayer.CameraMaxZoomDistance = 1000000000000
 end)
+
+
+
+
 
 Isle999:addButton("Print Portal Email", function()
 	local e = game.Workspace.ObservatoryComputer.Monitor.SurfaceGui.Email["6"].Message2.Text
 	print(e)
 end)
+
 Isle999:addButton("Kill mercenaries", function()
 local Player = game.Players.LocalPlayer
 for index, value in next, workspace:GetDescendants() do
@@ -646,6 +691,7 @@ Isle999:addButton("Noclip [V]", function()
 		Duration = 5
 	})
 end)
+
 Scrip33ts:addToggle("Infinite Jump", nil, function(state)
 	InfiniteJumpEnabled = (state)
 	game:GetService("UserInputService").JumpRequest:connect(function()
@@ -673,6 +719,22 @@ players.LocalPlayer.Character["SleepMode"].Value = false
 end
 end)
 
+
+isle192312948:addSlider("Body Depth", 1, 1, 150, function(value)
+game.Players.LocalPlayer.Character.Humanoid.BodyDepthScale.Value = (value)
+end)
+
+isle192312948:addSlider("Body Height", 1, 1, 150, function(value)
+game.Players.LocalPlayer.Character.Humanoid.BodyHeightScale.Value = (value)
+end)
+
+isle192312948:addSlider("Body Width", 1, 1, 150, function(value)
+game.Players.LocalPlayer.Character.Humanoid.BodyWidthScale.Value = (value)
+end)
+
+isle192312948:addSlider("Head Scale", 1, 1, 150, function(value)
+game.Players.LocalPlayer.Character.Humanoid.HeadScale.Value = (value)
+end)
 
 local page3 = venyx:addPage("Developer", 5012544693)
 local sectiones6 = page3:addSection("README!")
