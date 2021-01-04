@@ -156,6 +156,8 @@ section1:addButton("Warning: After using NPC Control you can't shoot guns.", fun
 end)
 section1:addButton("To use infinite jump use infinite oxygen", function()
 end)
+section1:addButton("PS: Size is client sided!", function()
+end)
 section1:addButton("Verion 2.3", function()
 end)
 section1:addKeybind("Toggle Keybind", Enum.KeyCode.RightControl, function()
@@ -296,7 +298,7 @@ for i, v in pairs(light:GetChildren()) do
 end
 _G.FullBrightEnabled = false
 end)
-local isl129391 = venyx:addPage("Size [Client Sided]", 5012544693)
+local isl129391 = venyx:addPage("Size", 5012544693)
 local Scripts1 = venyx:addPage("Scripts", 5012544693)
 local Scripts = Scripts1:addSection("Options")
 local Scrip33ts = Scripts1:addSection("Other")
