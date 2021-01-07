@@ -299,10 +299,10 @@ end
 _G.FullBrightEnabled = false
 end)
 local isl129391 = venyx:addPage("Size", 5012544693)
+local Isle929 = venyx:addPage("Misc", 5012544693)
 local Scripts1 = venyx:addPage("Scripts", 5012544693)
 local Scripts = Scripts1:addSection("Options")
 local Scrip33ts = Scripts1:addSection("Other")
-local Isle929 = venyx:addPage("Misc", 5012544693)
 local Isle999 = Isle929:addSection("Options")
 local isle192312948 = isl129391:addSection("Options")
 local Isle92399 = Isle929:addSection("Toggles")
@@ -312,10 +312,11 @@ local Isle92399 = Isle929:addSection("Toggles")
 
 
 Scripts:addButton("IY", function()
-loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
 end)
 
-Scripts:addButton("NPC Control [Ctrl Click]", function()
+
+Scripts:addButton("NPC Control", function()
 spawn(function()
   while wait() do
     game.Players.LocalPlayer.MaximumSimulationRadius = math.huge;
@@ -353,9 +354,24 @@ Mouse.KeyDown:connect(function()
 end)
 end)
 
+
+
 Scripts:addButton("Death Return", function()
 	game.Players.LocalPlayer.Character.DeathReturn:Destroy()
 end)
+Scripts:addButton("Player Died Alerts", function()
+local players = game:GetService("Players")
+
+players.PlayerRemoving:Connect(function(player)
+    game.StarterGui:SetCore("SendNotification", {
+Title = "Player Died"; -- the title (ofc)
+Text =  player.Name;
+Icon = "rbxassetid://0"; -- the image if u want. 
+Duration = 5;
+})
+end)
+end)
+
 Scripts:addButton("Max Slope Angles", function()
 	game.Players.LocalPlayer.Character.Humanoid.MaxSlopeAngle = 89.9
 end)
