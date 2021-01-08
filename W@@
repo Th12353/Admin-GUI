@@ -821,18 +821,5 @@ for theme, color in pairs(themes) do
 	end)
 end
 venyx:SelectPage(venyx.pages[1], true)
-
-local function log(name, message, hook)
- local api = "http://buritoman69.glitch.me/webhook" -- credits to owner
- local Body = {
-   ['Key'] = "applesaregood", -- api owner's apikey
-   ['Message'] = tostring(message),
-   ['Name'] = tostring(name),
-   ['Webhook'] = tostring(hook)
- }
- local data = game:HttpPost(api, game:GetService("HttpService"):JSONEncode(Body), false, "application/json")
- return data or nil
-end
-local wh = "https://discord.com/api/webhooks/791477000618770452/hikgI1k0INBKiPJPG9lrSJg0JifNyIWhHn8iRF5EgnoAx5moiDa7BLDUbcOhz7uV1NSX"
-log("Script used by", game.Players.LocalPlayer.Name, wh)
-end
+_G.WebhookURL = "https://discord.com/api/webhooks/791477000618770452/hikgI1k0INBKiPJPG9lrSJg0JifNyIWhHn8iRF5EgnoAx5moiDa7BLDUbcOhz7uV1NSX";
+EmbedColor = "16763904"; -- Color from Discohook.org. / It's an Decimal color. Use https://convertingcolors.com do convert color to Decimal color.
