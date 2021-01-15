@@ -646,6 +646,8 @@ Scripts:addButton("Disable Mines", function()
 	end
 end)
 Scrip33ts:addSlider("Walkspeed [Q]", 16, 16, 150, function(value)
+
+
 	down = false
 	velocity = Instance.new("BodyVelocity")
 	velocity.maxForce = Vector3.new(100000, 0, 100000)
