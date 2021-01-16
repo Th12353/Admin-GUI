@@ -1,4 +1,4 @@
-if game.Players.LocalPlayer.Name == "365MKZ" then
+if game.Players.LocalPlayer.Name == "igig" then
 game:Shutdown()
 else
 -- Farewell Infortality.
