@@ -357,7 +357,7 @@ end)
 
 
 Scripts:addButton("Death Return", function()
-	game.Players.LocalPlayer.Character.DeathReturn:Destroy()
+game.Players.LocalPlayer.Character.DeathReturn:Destroy()
 end)
 Scripts:addButton("Player Died Alerts", function()
 local players = game:GetService("Players")
