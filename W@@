@@ -373,7 +373,10 @@ end)
 end)
 
 Scripts:addButton("Max Slope Angles", function()
-	game.Players.LocalPlayer.Character.Humanoid.MaxSlopeAngle = 89.9
+while true do
+wait(.1)
+game.Players.LocalPlayer.Character.Humanoid.MaxSlopeAngle = 89.9
+end
 end)
 Scripts:addButton("Max Camera Zoom", function()
 	game.Players.LocalPlayer.CameraMaxZoomDistance = 1000000000000
