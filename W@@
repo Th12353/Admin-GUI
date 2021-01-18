@@ -299,8 +299,8 @@ for i, v in pairs(light:GetChildren()) do
 end
 _G.FullBrightEnabled = false
 end)
-local isl129391 = venyx:addPage("Size", 5012544693)
 local Isle929 = venyx:addPage("Misc", 5012544693)
+local isl129391 = venyx:addPage("Size", 5012544693)
 local Scripts = Scripts1:addSection("Options")
 local Scrip33ts = Scripts1:addSection("Other")
 local Isle999 = Isle929:addSection("Options")
