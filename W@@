@@ -175,7 +175,7 @@ section1:addButton("After using NPC Control you can't shoot guns.", function()
 end)
 section1:addButton("Size is client sided.", function()
 end)
-section1:addButton("PS: BHOP is faster than using the walkspeed slider!", function()
+section1:addButton("BHOP is faster than using the walkspeed slider.", function()
 end)
 
 section1:addKeybind("Toggle Keybind", Enum.KeyCode.RightControl, function()
