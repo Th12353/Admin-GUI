@@ -730,7 +730,7 @@ Scripts:addButton("Disable Mines", function()
 		end
 	end
 end)
-Scrip33ts:addSlider("Walkspeed [Q]", 16, 16, 50, function(value)
+Scrip33ts:addSlider("Walkspeed [Q]", 16, 16, 100, function(value)
 
 
 	down = false
