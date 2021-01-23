@@ -181,7 +181,7 @@ end)
 section1:addKeybind("Toggle Keybind", Enum.KeyCode.RightControl, function()
 	venyx:toggle()
 end)
-section1:addButton("Verion 6.3", function()
+section1:addButton("Verion 6.7", function()
 end)
 local Scripts1 = venyx:addPage("Scripts", 5012544693)
 local page2 = venyx:addPage("Stuff", 5012544693)
@@ -209,8 +209,81 @@ _G.options = {
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Th12353/fghdsgsfhhsjh/main/yeok", true))()
 end)
 
+sectiones2:addButton("Max Slope Angles", function()
+while true do
+wait(.1)
+game.Players.LocalPlayer.Character.Humanoid.MaxSlopeAngle = 89.9
+end
+end)
+sectiones2:addButton("Max Camera Zoom", function()
+	game.Players.LocalPlayer.CameraMaxZoomDistance = 1000000000000
+end)
+
 sectiones2:addButton("Add colide trees", function()
 	game:GetService("ReplicatedStorage").NoCollideTrees.Parent = game.Workspace
+end)
+
+sectiones2:addButton("BHOP", function()
+if not getgenv().MTAPIMutex then loadstring(game:HttpGet("https://pastebin.com/raw/UwFCVrhS", true))() end
+
+
+game.Players.LocalPlayer.Character.Humanoid:AddPropertyEmulator("WalkSpeed")
+local UIS = game:GetService("UserInputService")
+
+local BhopInfo = {
+   CurrentVel = 3, -- DONT TOUCH
+   VelCap = 700,
+   JumpBoostAmt = 0.1
+}
+
+local helper = {
+   getChar = function()
+       return game.Players.LocalPlayer.Character
+   end
+}
+
+local function checkOnGround(char)
+   local ray = Ray.new(char.HumanoidRootPart.Position,-(char.HumanoidRootPart.CFrame.UpVector * 100))
+   local part, pos = workspace:FindPartOnRay(ray,char)
+   
+   if part then
+       if pos then
+           local farness = math.ceil((char.HumanoidRootPart.Position - pos).Magnitude)
+           if farness > 3 then    -- works with normal blocky r15 avatars.. sooo :l
+               return false
+           elseif farness <= 3 then
+               return true
+           end
+       end
+   end
+end
+
+
+
+UIS.JumpRequest:Connect(function()
+   if (UIS:IsKeyDown(Enum.KeyCode.W) == false) and (UIS:IsKeyDown(Enum.KeyCode.A) or UIS:IsKeyDown(Enum.KeyCode.D)) == true and BhopInfo.CurrentVel < BhopInfo.VelCap then
+       BhopInfo.CurrentVel = BhopInfo.CurrentVel + BhopInfo.JumpBoostAmt
+   end
+end)
+
+spawn(function() -- spawn, wait, delay, and Debris are ALL SO BAD. NEVER RELY ON THEM. I am relying on them though because this is a exploit script, not much effort put into it
+   while true do
+       local char = helper.getChar()
+   
+       if checkOnGround(char) == false and BhopInfo.CurrentVel ~= 0 then
+           char.HumanoidRootPart.CFrame = char.HumanoidRootPart.CFrame + (char.HumanoidRootPart.CFrame.LookVector * BhopInfo.CurrentVel/6)
+           print('hopping')
+       end
+
+       if UIS:IsKeyDown(Enum.KeyCode.Space) == false then
+           BhopInfo.CurrentVel = 0
+       elseif UIS:IsKeyDown(Enum.KeyCode.Space) == true and UIS:IsKeyDown(Enum.KeyCode.W) then
+           BhopInfo.CurrentVel = math.clamp(BhopInfo.CurrentVel - 0.01,0,BhopInfo.VelCap)
+       end
+   
+       game:GetService("RunService").Stepped:Wait()
+   end
+end)
 end)
 
 sectiones2:addButton("No colide trees", function()
@@ -335,69 +408,6 @@ Scripts:addButton("IY", function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
 end)
 
-Scripts:addButton("BHOP", function()
-if not getgenv().MTAPIMutex then loadstring(game:HttpGet("https://pastebin.com/raw/UwFCVrhS", true))() end
-
-
-game.Players.LocalPlayer.Character.Humanoid:AddPropertyEmulator("WalkSpeed")
-local UIS = game:GetService("UserInputService")
-
-local BhopInfo = {
-   CurrentVel = 3, -- DONT TOUCH
-   VelCap = 700,
-   JumpBoostAmt = 0.1
-}
-
-local helper = {
-   getChar = function()
-       return game.Players.LocalPlayer.Character
-   end
-}
-
-local function checkOnGround(char)
-   local ray = Ray.new(char.HumanoidRootPart.Position,-(char.HumanoidRootPart.CFrame.UpVector * 100))
-   local part, pos = workspace:FindPartOnRay(ray,char)
-   
-   if part then
-       if pos then
-           local farness = math.ceil((char.HumanoidRootPart.Position - pos).Magnitude)
-           if farness > 3 then    -- works with normal blocky r15 avatars.. sooo :l
-               return false
-           elseif farness <= 3 then
-               return true
-           end
-       end
-   end
-end
-
-
-
-UIS.JumpRequest:Connect(function()
-   if (UIS:IsKeyDown(Enum.KeyCode.W) == false) and (UIS:IsKeyDown(Enum.KeyCode.A) or UIS:IsKeyDown(Enum.KeyCode.D)) == true and BhopInfo.CurrentVel < BhopInfo.VelCap then
-       BhopInfo.CurrentVel = BhopInfo.CurrentVel + BhopInfo.JumpBoostAmt
-   end
-end)
-
-spawn(function() -- spawn, wait, delay, and Debris are ALL SO BAD. NEVER RELY ON THEM. I am relying on them though because this is a exploit script, not much effort put into it
-   while true do
-       local char = helper.getChar()
-   
-       if checkOnGround(char) == false and BhopInfo.CurrentVel ~= 0 then
-           char.HumanoidRootPart.CFrame = char.HumanoidRootPart.CFrame + (char.HumanoidRootPart.CFrame.LookVector * BhopInfo.CurrentVel/6)
-           print('hopping')
-       end
-
-       if UIS:IsKeyDown(Enum.KeyCode.Space) == false then
-           BhopInfo.CurrentVel = 0
-       elseif UIS:IsKeyDown(Enum.KeyCode.Space) == true and UIS:IsKeyDown(Enum.KeyCode.W) then
-           BhopInfo.CurrentVel = math.clamp(BhopInfo.CurrentVel - 0.01,0,BhopInfo.VelCap)
-       end
-   
-       game:GetService("RunService").Stepped:Wait()
-   end
-end)
-end)
-
 Scripts:addButton("NPC Control", function()
 spawn(function()
   while wait() do
@@ -452,16 +462,6 @@ Icon = "rbxassetid://0"; -- the image if u want.
 Duration = 5;
 })
 end)
-end)
-
-Scripts:addButton("Max Slope Angles", function()
-while true do
-wait(.1)
-game.Players.LocalPlayer.Character.Humanoid.MaxSlopeAngle = 89.9
-end
-end)
-Scripts:addButton("Max Camera Zoom", function()
-	game.Players.LocalPlayer.CameraMaxZoomDistance = 1000000000000
 end)
 
 
