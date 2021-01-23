@@ -187,16 +187,7 @@ local Scripts1 = venyx:addPage("Scripts", 5012544693)
 local page2 = venyx:addPage("Stuff", 5012544693)
 local sectiones1 = page2:addSection("Teleports")
 local sectiones2 = page2:addSection("Other")
-sectiones1:addButton("Ship Teleport", function()
-	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(264.43515, 20.2382774, 31333.4922, 0, 0, -1, 0, 1, 0, 1, 0, 0)
-	game:GetService('TestService'):Message("Ship Teleport works only on Day [1]")
-end)
-sectiones1:addButton("Visit the lotus", function()
-game:GetService("TeleportService"):Teleport(4514535987, LocalPlayer) 
-end)
-sectiones1:addButton("Teleport to the truth", function()
- game:GetService("TeleportService"):Teleport(4529197908, LocalPlayer)
-end)
+
 
 sectiones2:addButton("Load ESP", function()
     -- Options for ESP
@@ -221,69 +212,6 @@ end)
 
 sectiones2:addButton("Add colide trees", function()
 	game:GetService("ReplicatedStorage").NoCollideTrees.Parent = game.Workspace
-end)
-
-sectiones2:addButton("BHOP", function()
-if not getgenv().MTAPIMutex then loadstring(game:HttpGet("https://pastebin.com/raw/UwFCVrhS", true))() end
-
-
-game.Players.LocalPlayer.Character.Humanoid:AddPropertyEmulator("WalkSpeed")
-local UIS = game:GetService("UserInputService")
-
-local BhopInfo = {
-   CurrentVel = 3, -- DONT TOUCH
-   VelCap = 700,
-   JumpBoostAmt = 0.1
-}
-
-local helper = {
-   getChar = function()
-       return game.Players.LocalPlayer.Character
-   end
-}
-
-local function checkOnGround(char)
-   local ray = Ray.new(char.HumanoidRootPart.Position,-(char.HumanoidRootPart.CFrame.UpVector * 100))
-   local part, pos = workspace:FindPartOnRay(ray,char)
-   
-   if part then
-       if pos then
-           local farness = math.ceil((char.HumanoidRootPart.Position - pos).Magnitude)
-           if farness > 3 then    -- works with normal blocky r15 avatars.. sooo :l
-               return false
-           elseif farness <= 3 then
-               return true
-           end
-       end
-   end
-end
-
-
-
-UIS.JumpRequest:Connect(function()
-   if (UIS:IsKeyDown(Enum.KeyCode.W) == false) and (UIS:IsKeyDown(Enum.KeyCode.A) or UIS:IsKeyDown(Enum.KeyCode.D)) == true and BhopInfo.CurrentVel < BhopInfo.VelCap then
-       BhopInfo.CurrentVel = BhopInfo.CurrentVel + BhopInfo.JumpBoostAmt
-   end
-end)
-
-spawn(function() -- spawn, wait, delay, and Debris are ALL SO BAD. NEVER RELY ON THEM. I am relying on them though because this is a exploit script, not much effort put into it
-   while true do
-       local char = helper.getChar()
-   
-       if checkOnGround(char) == false and BhopInfo.CurrentVel ~= 0 then
-           char.HumanoidRootPart.CFrame = char.HumanoidRootPart.CFrame + (char.HumanoidRootPart.CFrame.LookVector * BhopInfo.CurrentVel/6)
-           print('hopping')
-       end
-
-       if UIS:IsKeyDown(Enum.KeyCode.Space) == false then
-           BhopInfo.CurrentVel = 0
-       elseif UIS:IsKeyDown(Enum.KeyCode.Space) == true and UIS:IsKeyDown(Enum.KeyCode.W) then
-           BhopInfo.CurrentVel = math.clamp(BhopInfo.CurrentVel - 0.01,0,BhopInfo.VelCap)
-       end
-   
-       game:GetService("RunService").Stepped:Wait()
-   end
-end)
 end)
 
 sectiones2:addButton("No colide trees", function()
@@ -467,6 +395,68 @@ end)
 
 
 
+Isle999:addButton("BHOP", function()
+if not getgenv().MTAPIMutex then loadstring(game:HttpGet("https://pastebin.com/raw/UwFCVrhS", true))() end
+
+
+game.Players.LocalPlayer.Character.Humanoid:AddPropertyEmulator("WalkSpeed")
+local UIS = game:GetService("UserInputService")
+
+local BhopInfo = {
+   CurrentVel = 3, -- DONT TOUCH
+   VelCap = 700,
+   JumpBoostAmt = 0.1
+}
+
+local helper = {
+   getChar = function()
+       return game.Players.LocalPlayer.Character
+   end
+}
+
+local function checkOnGround(char)
+   local ray = Ray.new(char.HumanoidRootPart.Position,-(char.HumanoidRootPart.CFrame.UpVector * 100))
+   local part, pos = workspace:FindPartOnRay(ray,char)
+   
+   if part then
+       if pos then
+           local farness = math.ceil((char.HumanoidRootPart.Position - pos).Magnitude)
+           if farness > 3 then    -- works with normal blocky r15 avatars.. sooo :l
+               return false
+           elseif farness <= 3 then
+               return true
+           end
+       end
+   end
+end
+
+
+
+UIS.JumpRequest:Connect(function()
+   if (UIS:IsKeyDown(Enum.KeyCode.W) == false) and (UIS:IsKeyDown(Enum.KeyCode.A) or UIS:IsKeyDown(Enum.KeyCode.D)) == true and BhopInfo.CurrentVel < BhopInfo.VelCap then
+       BhopInfo.CurrentVel = BhopInfo.CurrentVel + BhopInfo.JumpBoostAmt
+   end
+end)
+
+spawn(function() -- spawn, wait, delay, and Debris are ALL SO BAD. NEVER RELY ON THEM. I am relying on them though because this is a exploit script, not much effort put into it
+   while true do
+       local char = helper.getChar()
+   
+       if checkOnGround(char) == false and BhopInfo.CurrentVel ~= 0 then
+           char.HumanoidRootPart.CFrame = char.HumanoidRootPart.CFrame + (char.HumanoidRootPart.CFrame.LookVector * BhopInfo.CurrentVel/6)
+           print('hopping')
+       end
+
+       if UIS:IsKeyDown(Enum.KeyCode.Space) == false then
+           BhopInfo.CurrentVel = 0
+       elseif UIS:IsKeyDown(Enum.KeyCode.Space) == true and UIS:IsKeyDown(Enum.KeyCode.W) then
+           BhopInfo.CurrentVel = math.clamp(BhopInfo.CurrentVel - 0.01,0,BhopInfo.VelCap)
+       end
+   
+       game:GetService("RunService").Stepped:Wait()
+   end
+end)
+end)
 
 Isle999:addButton("Print Portal Email", function()
 	local e = game.Workspace.ObservatoryComputer.Monitor.SurfaceGui.Email["6"].Message2.Text
@@ -842,7 +832,8 @@ end)
 isle192312948:addSlider("Head Scale", 1, 1, 150, function(value)
 game.Players.LocalPlayer.Character.Humanoid.HeadScale.Value = (value)
 end)
-
+local page4 = venyx:addPage("Teleports", 5012544693)
+local secwe = page4:addSection("Options")
 local page3 = venyx:addPage("Developer", 5012544693)
 local sectiones6 = page3:addSection("README!")
 local sectiones7 = page3:addSection("Items TP")
@@ -854,6 +845,18 @@ for i, v in pairs(workspace.Tools:GetChildren()) do
 		end)
 	end
 end
+
+secwe:addButton("Ship Teleport", function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(264.43515, 20.2382774, 31333.4922, 0, 0, -1, 0, 1, 0, 1, 0, 0)
+	game:GetService('TestService'):Message("Ship Teleport works only on Day [1]")
+end)
+secwe:addButton("Visit the lotus", function()
+game:GetService("TeleportService"):Teleport(4514535987, LocalPlayer) 
+end)
+secwe:addButton("Teleport to the truth", function()
+ game:GetService("TeleportService"):Teleport(4529197908, LocalPlayer)
+end)
+
 sectiones8:addButton("Watchtower", function()
 game.Players.LocalPlayer.Character:MoveTo(Vector3.new(-655.500244, 138.209625, -289.795654))
 end)
