@@ -206,7 +206,7 @@ _G.options = {
      ["Items"] = true,
      ["Threats"] = true, -- Serpent, Turrets, etc.
 }
-loadstring(game:HttpGet("https://pastebin.com/raw/u2Z1vqHY", true))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Th12353/fghdsgsfhhsjh/main/yeok", true))()
 end)
 
 sectiones2:addButton("Add colide trees", function()
