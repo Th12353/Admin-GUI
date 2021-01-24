@@ -1,4 +1,6 @@
-if game.Players.LocalPlayer.Name == "DqrkF" then
+local blacklist = {"aishaqil_support", "SpectralParoxysm"}
+
+if game.Players.LocalPlayer.Name == blacklist then
 game:Shutdown()
 else
 if game:service('RunService'):IsStudio() then print('!STUDIO!') else
