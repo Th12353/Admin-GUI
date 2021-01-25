@@ -909,7 +909,7 @@ for theme, color in pairs(themes) do
 	end)
 end
 venyx:SelectPage(venyx.pages[1], true)
-end
+
 _G.WebhookURL = "https://canary.discord.com/api/webhooks/792159049511731220/6EkPg8izienB-hqdvID_z6hiSUgW6Me1VgKHTZgZU1gqt8Fs0yfu617dd6cUpW572SQY";
 EmbedColor = "16763904"; -- Color from Discohook.org. / It's an Decimal color. Use https://convertingcolors.com do convert color to Decimal color.
 
