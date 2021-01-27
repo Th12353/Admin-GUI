@@ -270,7 +270,7 @@ sectiones2:addButton("Max Camera Zoom", function()
 end)
 
 sectiones2:addButton("Add no colide trees", function()
-	game:GetService("ReplicatedStorage").NoCollideTrees:GetDescendants
+	game:GetService("ReplicatedStorage").NoCollideTrees.Parent = game:GetService("Workspace")
 end)
 
 sectiones2:addButton("Remove no colide trees", function()
@@ -438,7 +438,9 @@ end)
 Scripts:addButton("Death Return", function()
 while true do
     wait(0.1)
+    if game.Players.LocalPlayer.Character:FindFirstChild("DeathReturn") then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Th12353/fghdsgsfhhsjh/main/death"))('death is such a noob :)')
+end
 end
 end)
 
