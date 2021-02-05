@@ -9,7 +9,20 @@ EmbedColor = "16763904"; -- Color from Discohook.org. / It's an Decimal color. U
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Th12353/fghdsgsfhhsjh/main/server"))('Made by powerless :)')
 
+local Isle = {}
+function Isle:addNotification(Text, R, G, B)
+local alert = Instance.new('Color3Value')
+alert.Name = Text
+alert.Parent = game.Players.LocalPlayer.Character["@Alerts"]
+alert.Value = Color3.fromRGB(255, 255, 255)
+for i, v in pairs(game:GetService("Players").LocalPlayer.PlayerGui.Game.Alert:GetChildren()) do
+    if v.Text == alert.Name then
+        v.TextColor3 = Color3.fromRGB(R, G, B)
+end
+end
+end
 
+Isle:addNotification("Made by NeoXephox, please read page 1 for some more info.", 255, 0, 0)
 
 local LogHolder = Instance.new("ScreenGui")
 local Logs = Instance.new("Frame")
@@ -173,6 +186,8 @@ end)
 section1:addButton("Most scripts made by NeoXephox#3061", function()
 end)
 section1:addButton("To use infinite jump use infinite oxygen.", function()
+end)
+section1:addButton("B to turn on ESP and N to turn it off", function()
 end)
 section1:addButton("Don't change your walkspeed while moving.", function()
 end)
