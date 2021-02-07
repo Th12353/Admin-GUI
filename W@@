@@ -179,7 +179,7 @@ local themes = {
 local page1 = venyx:addPage("Welcome", 5012544693)
 local section1 = page1:addSection("Welcome!")
 section1:addButton("Copy discord invite", function()
-	setclipboard("islegui.uwuware.xyz")
+setclipboard("https://discord.gg/XPBhUptGrd")
 end)
 section1:addButton("GUI made by ilikesnow#5357", function()
 end)
