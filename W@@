@@ -22,7 +22,7 @@ end
 end
 end
 
-Isle:addNotification("Made by NeoXephox, please read page 1 for some more info.", 255, 0, 0)
+Isle:addNotification("Made by NeoXephox and GoodB0y08, please read page 1 for some more info.", 255, 0, 0)
 
 local LogHolder = Instance.new("ScreenGui")
 local Logs = Instance.new("Frame")
@@ -181,9 +181,7 @@ local section1 = page1:addSection("Welcome!")
 section1:addButton("Copy discord invite", function()
 setclipboard("https://discord.gg/XPBhUptGrd")
 end)
-section1:addButton("GUI made by ilikesnow#5357", function()
-end)
-section1:addButton("Most scripts made by NeoXephox#3061", function()
+section1:addButton("Scripts made by NeoXephox#3061 + GoodB0y08#1337", function()
 end)
 section1:addButton("To use infinite jump use infinite oxygen.", function()
 end)
@@ -745,6 +743,18 @@ Scripts:addButton("Disable Mines", function()
 			fireclickdetector(v)
 		end
 	end
+pcall(function()
+game:GetService("Workspace").Guillotine.Trigger:Destroy()
+game:GetService("Workspace").Guillotine.Trigger2:Destroy()
+game:GetService("Workspace").Guillotine.Kill:Destroy()
+game:GetService("Workspace").Turret.Trigger:Destroy()
+game:GetService("Workspace").Turret.Script:Destroy()
+for i,v in pairs(workspace:GetDescendants()) do
+  if v.Name:find("TouchInterest") and v.Parent == 'Tripwire' then
+    v:Destory()
+end
+end
+end)
 end)
 Scrip33ts:addSlider("Walkspeed [Q]", 16, 16, 100, function(value)
 
