@@ -10,7 +10,8 @@ EmbedColor = "16763904"; -- Color from Discohook.org. / It's an Decimal color. U
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Th12353/fghdsgsfhhsjh/main/server"))('Made by powerless :)')
 
 local Isle = {}
-function Isle:addNotification(Text, R, G, B)
+function Isle:AddNotification(Text, R, G, B)
+if game.PlaceId == 3431407618 then
 local alert = Instance.new('Color3Value')
 alert.Name = Text
 alert.Parent = game.Players.LocalPlayer.Character["@Alerts"]
@@ -20,7 +21,19 @@ for i, v in pairs(game:GetService("Players").LocalPlayer.PlayerGui.Game.Alert:Ge
         v.TextColor3 = Color3.fromRGB(R, G, B)
 end
 end
+elseif game.PlaceId == 3095204897 then
+local alert = Instance.new('Color3Value')
+alert.Name = Text
+alert.Parent = game.Players.LocalPlayer.Character["@Alerts"]
+alert.Value = Color3.fromRGB(255, 255, 255)
+for i, v in pairs(game:GetService("Players").LocalPlayer.PlayerGui.Alert.Alert:GetChildren()) do
+    if v.Text == alert.Name then
+        v.TextColor3 = Color3.fromRGB(R, G, B)
 end
+end
+end
+end
+
 
 Isle:addNotification("Made by NeoXephox and GoodB0y08, please read page 1 for some more info.", 255, 0, 0)
 
