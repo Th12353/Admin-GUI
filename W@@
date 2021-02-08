@@ -730,7 +730,9 @@ game.Players.LocalPlayer.Character.LowerTorso.Root:Destroy()
 end)
 end)
 Scripts:addButton("Infinite Oxygen", function()
-	loadstring(game:HttpGet("https://pastebin.com/raw/B1UdtMRg"))()
+getgenv().BlurToggle = true
+game.Players.LocalPlayer.Character.Diving:Destroy()
+game.Lighting.Blur.Enabled = BlurToggle
 end)
 Scripts:addButton("Random Teleport", function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.SpecialRegions.Anomaly2.CFrame
