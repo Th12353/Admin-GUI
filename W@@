@@ -743,8 +743,12 @@ game.Players.LocalPlayer.Character.LowerTorso.Root:Destroy()
 end)
 end)
 Scripts:addButton("Infinite Oxygen", function()
-getgenv().BlurToggle = true
 game.Players.LocalPlayer.Character.Diving:Destroy()
+game.Players.LocalPlayer.Character.Humanoid.MaxSlopeAngle = 89.9
+game.Players.LocalPlayer.CameraMaxZoomDistance = 1000000000000
+wait(.1)
+game.Players.LocalPlayer.PlayerGui.Game.Oxygen.Visible = false
+getgenv().BlurToggle = true
 game.Lighting.Blur.Enabled = BlurToggle
 end)
 Scripts:addButton("Random Teleport", function()
