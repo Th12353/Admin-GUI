@@ -35,7 +35,7 @@ end
 end
 end
 
-Isle:AddNotification("Made by NeoXephox and GoodB0y08, read page 1 for more info!", 255, 0, 0)
+Isle:AddNotification("Made by NeoXephox and GoodB0y08, read page 1 for more info!", 255, 255, 255)
 
 
 local LogHolder = Instance.new("ScreenGui")
