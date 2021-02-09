@@ -29,12 +29,12 @@ alert.Value = Color3.fromRGB(255, 255, 255)
 for i, v in pairs(game:GetService("Players").LocalPlayer.PlayerGui.Alert.Alert:GetChildren()) do
     if v.Text == alert.Name then
         v.TextColor3 = Color3.fromRGB(R, G, B)
-	
-Isle:addNotification("Made by NeoXephox and GoodB0y08, please read page 1 for some more info.", 255, 0, 0)
 end
 end
 end
 end
+
+Isle:AddNotification("Made by NeoXephox and GoodB0y08, read page 1 for more info!", 255, 0, 0)
 
 
 local LogHolder = Instance.new("ScreenGui")
