@@ -1,4 +1,4 @@
-if game.PlaceId == 3461767162 then
+if game.PlaceId == 3431407618 then
 if syn then
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Th12353/fghdsgsfhhsjh/main/Check"))('BRUH')
 else
