@@ -1,1 +1,20 @@
 
+while true do
+wait(.0000000000000000001)
+local content = (syn and syn.request or http_request)(
+    {
+        Url = "https://www.roblox.com/places/api-get-details?assetId="..game.PlaceId,  
+        Method = "GET",
+        Headers = {
+            ["Content-Type"] = "application/json"
+        },  
+    }
+)
+contents = content.Body
+headers = content.Body.Headers
+http = game.HttpService
+jsondecode = http:JSONDecode(contents)
+visitedcount = jsondecode["VisitedCount"]
+onlinecount = jsondecode["OnlineCount"]
+builder = jsondecode["Builder"]
+end
