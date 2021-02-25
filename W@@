@@ -1,6 +1,6 @@
 
 while true do
-wait(.0000000000000000001)
+wait(1)
 local content = (syn and syn.request or http_request)(
     {
         Url = "https://www.roblox.com/places/api-get-details?assetId="..game.PlaceId,  
